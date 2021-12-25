@@ -1,0 +1,8 @@
+module:com.passamu
+com.passamu
+com.passamu.controllers
+com.passamu.crypt
+com.passamu.data
+com.passamu.models
+com.passamu.utils
+com.passamu.xml

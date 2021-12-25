@@ -1,0 +1,575 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane fx:id="scene" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="715.0" prefWidth="1263.0" stylesheets="@main.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.passamu.controllers.Controller">
+    <children>
+      <StackPane prefHeight="715.0" prefWidth="1263.0">
+         <children>
+            <BorderPane fx:id="pnSettings" prefHeight="715.0" prefWidth="940.0">
+               <center>
+                  <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #1C1C1CFF;" BorderPane.alignment="CENTER">
+                     <children>
+                        <Label fx:id="editName1" alignment="CENTER" layoutX="280.0" layoutY="16.0" prefHeight="45.0" prefWidth="400.0" text="Settings" textAlignment="CENTER" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="37.0" />
+                           </font>
+                        </Label>
+                        <Button layoutX="904.0" layoutY="14.0" mnemonicParsing="false" onAction="#close" prefHeight="40.0" prefWidth="40.0" style="-fx-background-radius: 7;">
+                           <graphic>
+                              <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../icons/redDelete.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </Button>
+                        <Button layoutX="21.0" layoutY="14.0" mnemonicParsing="false" onAction="#back" prefHeight="40.0" prefWidth="40.0" style="-fx-background-radius: 7;">
+                           <graphic>
+                              <ImageView fx:id="EditLogoIsSave11" fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../icons/back.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </Button>
+                        <Button layoutX="298.0" layoutY="215.0" mnemonicParsing="false" onAction="#exportXML" prefHeight="80.0" prefWidth="365.0" text="Export to XML (DANGER)" textFill="#f5f5f5">
+                           <font>
+                              <Font size="21.0" />
+                           </font>
+                        </Button>
+                        <Button layoutX="298.0" layoutY="415.0" mnemonicParsing="false" onAction="#saving" prefHeight="80.0" prefWidth="365.0" text="Save As" textFill="#f5f5f5">
+                           <font>
+                              <Font size="21.0" />
+                           </font>
+                        </Button>
+                     </children>
+                     <BorderPane.margin>
+                        <Insets left="302.0" />
+                     </BorderPane.margin>
+                  </Pane>
+               </center>
+            </BorderPane>
+              <BorderPane fx:id="pnTotal" prefHeight="785.0" prefWidth="1263.0">
+                  <center>
+                      <VBox minWidth="300.0" prefHeight="785.0" prefWidth="413.0" style="-fx-background-color: #1C1C1CFF; -fx-border-width: 0 2 0 0; -fx-border-color: #262626;" BorderPane.alignment="CENTER">
+                     <children>
+                        <HBox prefHeight="67.0" prefWidth="368.0">
+                           <children>
+                              <TextField fx:id="searchBar" onKeyPressed="#findEntry" prefHeight="40.0" prefWidth="328.0" promptText="Search Name and Press ENTER" style="-fx-background-color: #3F3F3FFF; -fx-background-radius: 7; -fx-text-fill: white;">
+                                 <HBox.margin>
+                                    <Insets />
+                                 </HBox.margin>
+                              </TextField>
+                              <Button fx:id="btnAdd" mnemonicParsing="false" onAction="#addItem" prefHeight="40.0" prefWidth="40.0" style="-fx-background-radius: 7;">
+                                 <HBox.margin>
+                                    <Insets left="10.0" />
+                                 </HBox.margin>
+                                 <graphic>
+                                    <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../icons/plus.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                              </Button>
+                           </children>
+                           <VBox.margin>
+                              <Insets />
+                           </VBox.margin>
+                        </HBox>
+                        <VBox fx:id="listList" prefHeight="646.0" prefWidth="383.0">
+                           <children>
+                              <ScrollPane fx:id="listScroll" prefHeight="646.0" prefWidth="383.0" style="-fx-background-color: transparent;">
+                                 <VBox.margin>
+                                    <Insets top="10.0" />
+                                 </VBox.margin></ScrollPane>
+                           </children>
+                        </VBox>
+                     </children>
+                     <BorderPane.margin>
+                        <Insets />
+                     </BorderPane.margin>
+                     <padding>
+                        <Insets left="15.0" right="15.0" top="15.0" />
+                     </padding>
+                  </VBox>
+                  </center>
+                  <right>
+                  <VBox BorderPane.alignment="CENTER">
+                     <children>
+                            <Pane minWidth="300.0" prefHeight="785.0" prefWidth="559.0" style="-fx-background-color: #1C1C1CFF;">
+                           <children>
+                              <Pane layoutX="73.0" layoutY="107.0">
+                                 <children>
+                                    <Label fx:id="crdNom" layoutX="72.0" layoutY="2.0" prefHeight="32.0" prefWidth="194.0" text="Google" textFill="WHITE">
+                                       <font>
+                                          <Font name="System Bold" size="20.0" />
+                                       </font>
+                                    </Label>
+                                    <ImageView fx:id="crdLogo" fitHeight="55.0" fitWidth="53.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../icons/google.png" />
+                                       </image>
+                                    </ImageView>
+                                    <Label fx:id="crdCat" layoutX="73.0" layoutY="23.0" prefHeight="32.0" prefWidth="194.0" text="Accounts" textFill="#c3c3c3">
+                                       <font>
+                                          <Font size="12.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </Pane>
+                              <TextField fx:id="crdUsername" editable="false" layoutX="73.0" layoutY="229.0" prefHeight="50.0" prefWidth="353.0" promptText="Username" style="-fx-background-color: #3F3F3FFF; -fx-background-radius: 7; -fx-text-fill: LIGHTGRAY;" text="Username" />
+                              <Line fx:id="crdbar1" endX="314.0" layoutX="174.0" layoutY="190.0" startX="-100.0" stroke="#b9b9b9" />
+                              <Label fx:id="crdWebsiteTitle" layoutX="74.0" layoutY="401.0" prefHeight="30.0" prefWidth="178.0" text="Website :" textFill="#ababab">
+                                 <font>
+                                    <Font size="15.0" />
+                                 </font>
+                              </Label>
+                              <Hyperlink fx:id="crdURL" layoutX="73.0" layoutY="431.0" onAction="#accessURL" prefHeight="22.0" prefWidth="416.0" text="www.google.com">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </Hyperlink>
+                              <Line fx:id="crdbar2" endX="314.0" layoutX="174.0" layoutY="490.0" startX="-100.0" stroke="#b9b9b9" />
+                              <Button fx:id="hidePassword" layoutX="376.0" layoutY="320.0" mnemonicParsing="false" onAction="#showCrdPassword" prefHeight="50.0" prefWidth="50.0" style="-fx-background-radius: 7;">
+                                 <graphic>
+                                    <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../icons/hide.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                              </Button>
+                              <Button fx:id="passCopy" layoutX="439.0" layoutY="320.0" mnemonicParsing="false" onAction="#copyPassword" prefHeight="50.0" prefWidth="50.0" style="-fx-background-radius: 7;">
+                                 <graphic>
+                                    <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../icons/Copy.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                              </Button>
+                              <Button fx:id="userCopy" layoutX="439.0" layoutY="229.0" mnemonicParsing="false" onAction="#copyUsername" prefHeight="50.0" prefWidth="50.0" style="-fx-background-radius: 7;">
+                                 <graphic>
+                                    <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../icons/Copy.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                              </Button>
+                              <Label fx:id="crdNoteText" layoutX="74.0" layoutY="518.0" prefHeight="30.0" prefWidth="178.0" text="Notes :" textFill="#ababab">
+                                 <font>
+                                    <Font size="15.0" />
+                                 </font>
+                              </Label>
+                              <PasswordField fx:id="crdPassword" editable="false" layoutX="73.0" layoutY="320.0" prefHeight="50.0" prefWidth="292.0" promptText="Password" style="-fx-background-color: #3F3F3FFF; -fx-background-radius: 7; -fx-text-fill: LIGHTGRAY;" text="Password" />
+                              <Text fx:id="crdNote" fill="#a8a8a8" layoutX="79.0" layoutY="565.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequa" wrappingWidth="413.7294921875">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </Text>
+                              <Button fx:id="btnquit" layoutX="502.0" layoutY="14.0" mnemonicParsing="false" onAction="#close" prefHeight="40.0" prefWidth="40.0" style="-fx-background-radius: 7;">
+                                 <graphic>
+                                    <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../icons/redDelete.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                              </Button>
+                              <Button fx:id="btnEdit" layoutX="445.0" layoutY="14.0" mnemonicParsing="false" onAction="#editingCard" prefHeight="40.0" prefWidth="40.0" style="-fx-background-radius: 7;">
+                                 <graphic>
+                                    <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../icons/edit.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                              </Button>
+                              <ImageView fx:id="crdFavorite" fitHeight="43.0" fitWidth="50.0" layoutX="445.0" layoutY="113.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../icons/star.png" />
+                                 </image>
+                              </ImageView>
+                              <TextField fx:id="crdPasswordShow" editable="false" layoutX="73.0" layoutY="320.0" prefHeight="50.0" prefWidth="292.0" style="-fx-background-color: #3F3F3FFF; -fx-background-radius: 7; -fx-text-fill: LIGHTGRAY;" visible="false" />
+                           </children>
+                        </Pane>
+                     </children>
+                  </VBox>
+                  </right>
+                  <left>
+                      <VBox prefHeight="785.0" prefWidth="302.0" style="-fx-background-color: #262626;" BorderPane.alignment="CENTER">
+                          <children>
+                        <Pane prefHeight="136.0" prefWidth="252.0">
+                           <children>
+                              <Pane layoutY="51.0">
+                                 <children>
+                                    <Label layoutX="52.0" text="PassAMU" textFill="WHITE">
+                                       <font>
+                                          <Font name="System Bold" size="37.0" />
+                                       </font>
+                                    </Label>
+                                    <ImageView fitHeight="39.0" fitWidth="37.0" layoutX="6.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../icons/lock.png" />
+                                       </image>
+                                    </ImageView>
+                                 </children>
+                              </Pane>
+                              <Text fill="#a8a8a8" layoutX="33.0" layoutY="110.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Password Manager Java Project M3105" textAlignment="CENTER" wrappingWidth="177.7294921875">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </Text>
+                           </children>
+                        </Pane>
+                              <Button fx:id="btnAll" alignment="BASELINE_LEFT" graphicTextGap="5.0" mnemonicParsing="false" onAction="#buttonCat" prefHeight="32.0" prefWidth="359.0" text="All" textFill="WHITE">
+                                  <graphic>
+                                      <ImageView fitHeight="23.0" fitWidth="33.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../icons/liste.png" />
+                                 </image>
+                              </ImageView>
+                                  </graphic>
+                           <VBox.margin>
+                              <Insets top="15.0" />
+                           </VBox.margin>
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                              </Button>
+                        <Button fx:id="btnFavoris" alignment="BASELINE_LEFT" graphicTextGap="5.0" mnemonicParsing="false" onAction="#buttonCat" prefHeight="32.0" prefWidth="359.0" text="Favorites" textFill="WHITE">
+                           <graphic>
+                              <ImageView fitHeight="23.0" fitWidth="33.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../icons/star.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="btnTrash" alignment="BASELINE_LEFT" graphicTextGap="5.0" mnemonicParsing="false" onAction="#buttonCat" prefHeight="32.0" prefWidth="359.0" text="Bin" textFill="WHITE">
+                           <graphic>
+                              <ImageView fitHeight="23.0" fitWidth="33.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../icons/trash.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Button>
+                        <Label prefHeight="30.0" prefWidth="178.0" text="Types" textFill="#ababab">
+                           <VBox.margin>
+                              <Insets top="15.0" />
+                           </VBox.margin>
+                        </Label>
+                        <Button fx:id="btnCard" alignment="BASELINE_LEFT" graphicTextGap="5.0" mnemonicParsing="false" onAction="#buttonType" prefHeight="32.0" prefWidth="359.0" text="Credit Card" textFill="WHITE">
+                           <graphic>
+                              <ImageView fitHeight="23.0" fitWidth="33.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../icons/card.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="btnAccount" alignment="BASELINE_LEFT" graphicTextGap="5.0" mnemonicParsing="false" onAction="#buttonType" prefHeight="32.0" prefWidth="359.0" text="Accounts" textFill="WHITE">
+                           <graphic>
+                              <ImageView fitHeight="23.0" fitWidth="33.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../icons/accounts.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="btnMoney" alignment="BASELINE_LEFT" graphicTextGap="5.0" mnemonicParsing="false" onAction="#buttonType" prefHeight="32.0" prefWidth="359.0" text="Money" textFill="WHITE">
+                           <graphic>
+                              <ImageView fitHeight="23.0" fitWidth="33.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../icons/money.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Button>
+                        <Label prefHeight="30.0" prefWidth="178.0" text="Dossiers" textFill="#ababab">
+                           <VBox.margin>
+                              <Insets top="15.0" />
+                           </VBox.margin>
+                        </Label>
+                        <ScrollPane fx:id="scrollFolder" pannable="true" prefHeight="236.0" prefWidth="252.0" style="-fx-background-color: transparent;" />
+                          </children>
+                     <BorderPane.margin>
+                        <Insets />
+                     </BorderPane.margin>
+                     <padding>
+                        <Insets left="25.0" right="25.0" />
+                     </padding>
+                      </VBox>
+                  </left>
+               <bottom>
+                  <Pane style="-fx-background-color: #262626; -fx-border-width: 1 0 0 0; -fx-border-color: #3A3A3AFF;" BorderPane.alignment="CENTER">
+                     <children>
+                        <HBox alignment="CENTER_LEFT" prefHeight="39.0" prefWidth="576.0" style="-fx-border-width: 1 0 0 0; -fx-border-color: #3A3A3AFF;">
+                           <children>
+                              <Text fx:id="fileName" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="File.passamu">
+                                 <HBox.margin>
+                                    <Insets left="15.0" />
+                                 </HBox.margin>
+                              </Text>
+                              <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Number Of Entries : ">
+                                 <HBox.margin>
+                                    <Insets left="15.0" />
+                                 </HBox.margin>
+                              </Text>
+                              <Text fx:id="nbOfEntries" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="0">
+                                 <HBox.margin>
+                                    <Insets />
+                                 </HBox.margin>
+                              </Text>
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER_RIGHT" layoutX="687.0" prefHeight="39.0" prefWidth="576.0" style="-fx-border-width: 1 0 0 0; -fx-border-color: #3A3A3AFF;">
+                           <children>
+                              <Button fx:id="btnSettings" mnemonicParsing="false" onAction="#settings" prefHeight="182.0" prefWidth="55.0" style="-fx-background-radius: 0;">
+                                 <graphic>
+                                    <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../icons/settings.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                              </Button>
+                              <Button fx:id="btnPasswordGenerator" mnemonicParsing="false" onAction="#generator" prefHeight="182.0" prefWidth="55.0" style="-fx-background-radius: 0;">
+                                 <graphic>
+                                    <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../icons/eclair.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                              </Button>
+                              <Button fx:id="btnLogout" mnemonicParsing="false" onAction="#quitFile" prefHeight="171.0" prefWidth="55.0" style="-fx-background-radius: 0;">
+                                 <graphic>
+                                    <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../icons/login.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                              </Button>
+                           </children>
+                        </HBox>
+                     </children>
+                  </Pane>
+               </bottom>
+              </BorderPane>
+            <BorderPane fx:id="pnEdit" prefHeight="715.0" prefWidth="940.0">
+               <center>
+                  <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #1C1C1CFF;" BorderPane.alignment="CENTER">
+                     <children>
+                        <Label fx:id="editName" alignment="CENTER" layoutX="280.0" layoutY="16.0" prefHeight="45.0" prefWidth="400.0" text="Edit" textAlignment="CENTER" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="37.0" />
+                           </font>
+                        </Label>
+                        <Button fx:id="btnquit" layoutX="904.0" layoutY="14.0" mnemonicParsing="false" onAction="#close" prefHeight="40.0" prefWidth="40.0" style="-fx-background-radius: 7;">
+                           <graphic>
+                              <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../icons/redDelete.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </Button>
+                        <Button fx:id="btnSetFav" layoutX="847.0" layoutY="14.0" mnemonicParsing="false" onAction="#editIsFav" prefHeight="40.0" prefWidth="40.0" style="-fx-background-radius: 7;">
+                           <graphic>
+                              <ImageView fx:id="EditLogoIsSave" fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../icons/starvide.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </Button>
+                        <TextField fx:id="editTitle" layoutX="304.0" layoutY="92.0" prefHeight="50.0" prefWidth="353.0" promptText="Title" style="-fx-background-color: #3F3F3FFF; -fx-background-radius: 7; -fx-text-fill: LIGHTGRAY;" />
+                        <TextField fx:id="editUsername" layoutX="304.0" layoutY="164.0" prefHeight="50.0" prefWidth="353.0" promptText="Username" style="-fx-background-color: #3F3F3FFF; -fx-background-radius: 7; -fx-text-fill: LIGHTGRAY;" />
+                        <TextField fx:id="editUrlWebsite" layoutX="304.0" layoutY="236.0" prefHeight="50.0" prefWidth="353.0" promptText="URL Of Website" style="-fx-background-color: #3F3F3FFF; -fx-background-radius: 7; -fx-text-fill: LIGHTGRAY;" />
+                        <PasswordField fx:id="editPassword" layoutX="304.0" layoutY="306.0" prefHeight="50.0" prefWidth="286.0" promptText="Password" style="-fx-background-color: #3F3F3FFF; -fx-background-radius: 7; -fx-text-fill: LIGHTGRAY;" />
+                        <Button fx:id="editBtnPasswordShow" layoutX="607.0" layoutY="306.0" mnemonicParsing="false" onAction="#showEditPassword" prefHeight="50.0" prefWidth="50.0" style="-fx-background-radius: 7;">
+                           <graphic>
+                              <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../icons/hide.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </Button>
+                        <PasswordField fx:id="editConfirmPassword" layoutX="304.0" layoutY="378.0" prefHeight="50.0" prefWidth="286.0" promptText="Confirm Password" style="-fx-background-color: #3F3F3FFF; -fx-background-radius: 7; -fx-text-fill: LIGHTGRAY;" />
+                        <Button fx:id="editBtnConfirmPasswordShow" layoutX="607.0" layoutY="378.0" mnemonicParsing="false" onAction="#showEditConfirmPassword" prefHeight="50.0" prefWidth="50.0" style="-fx-background-radius: 7;">
+                           <graphic>
+                              <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../icons/hide.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </Button>
+                        <ComboBox fx:id="typeBox" layoutX="304.0" layoutY="449.0" prefHeight="50.0" prefWidth="167.0" promptText="Type" stylesheets="@main.css" />
+                        <ComboBox fx:id="folderBox" layoutX="488.0" layoutY="449.0" prefHeight="50.0" prefWidth="170.0" promptText="Folder" stylesheets="@main.css" />
+                        <TextArea fx:id="editNotes" layoutX="305.0" layoutY="521.0" prefHeight="96.0" prefWidth="353.0" promptText="Notes" style="-fx-background-color: #3F3F3FFF; -fx-background-radius: 7; -fx-text-fill: LIGHTGRAY;" wrapText="true" />
+                        <Button fx:id="editSave" layoutX="304.0" layoutY="640.0" mnemonicParsing="false" onAction="#EditSavingCard" prefHeight="40.0" prefWidth="224.0" style="-fx-background-radius: 15; -fx-background-color: #388E3C; -fx-text-fill: white;" text="SAVE">
+                           <font>
+                              <Font name="System Bold" size="13.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="editDelete" layoutX="542.0" layoutY="640.0" mnemonicParsing="false" onAction="#deleteCard" prefHeight="40.0" prefWidth="115.0" style="-fx-background-radius: 15; -fx-background-color: B42121FF; -fx-text-fill: white;" text="DELETE">
+                           <font>
+                              <Font name="System Bold" size="13.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="addSave" layoutX="303.0" layoutY="640.0" mnemonicParsing="false" onAction="#savingCard" prefHeight="40.0" prefWidth="354.0" style="-fx-background-radius: 15; -fx-background-color: #388E3C; -fx-text-fill: white;" text="SAVE">
+                           <font>
+                              <Font name="System Bold" size="13.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="btnGeneratePassword" layoutX="904.0" layoutY="660.0" mnemonicParsing="false" onAction="#generator" prefHeight="40.0" prefWidth="40.0" style="-fx-background-radius: 7;">
+                           <graphic>
+                              <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../icons/eclair.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </Button>
+                        <Button fx:id="btnBack" layoutX="21.0" layoutY="14.0" mnemonicParsing="false" onAction="#back" prefHeight="40.0" prefWidth="40.0" style="-fx-background-radius: 7;">
+                           <graphic>
+                              <ImageView fx:id="EditLogoIsSave1" fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../icons/back.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </Button>
+                        <TextField fx:id="editPasswordShow" layoutX="304.0" layoutY="306.0" prefHeight="50.0" prefWidth="286.0" style="-fx-background-color: #3F3F3FFF; -fx-background-radius: 7; -fx-text-fill: LIGHTGRAY;" visible="false" />
+                        <TextField fx:id="editConfirmPasswordShow" layoutX="304.0" layoutY="378.0" prefHeight="50.0" prefWidth="286.0" style="-fx-background-color: #3F3F3FFF; -fx-background-radius: 7; -fx-text-fill: LIGHTGRAY;" visible="false" />
+                     </children>
+                     <BorderPane.margin>
+                        <Insets left="302.0" />
+                     </BorderPane.margin>
+                  </Pane>
+               </center>
+            </BorderPane>
+            <BorderPane fx:id="pnLogin" prefHeight="785.0" prefWidth="1263.0">
+               <center>
+                  <Pane prefHeight="136.0" prefWidth="252.0" style="-fx-background-color: #1C1C1CFF;">
+                     <children>
+                        <Pane layoutX="418.0" layoutY="76.0" prefHeight="115.0" prefWidth="428.0">
+                           <children>
+                              <Label layoutX="99.0" layoutY="22.0" prefHeight="72.0" prefWidth="315.0" text="PassAMU" textFill="WHITE">
+                                 <font>
+                                    <Font name="System Bold" size="60.0" />
+                                 </font>
+                              </Label>
+                              <ImageView fitHeight="78.0" fitWidth="79.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../icons/lock.png" />
+                                 </image>
+                              </ImageView>
+                              <Text fill="#a8a8a8" layoutX="125.0" layoutY="109.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Password Manager Java Project M3105" textAlignment="CENTER" wrappingWidth="177.7294921875">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </Text>
+                           </children>
+                        </Pane>
+                        <Button fx:id="btnquit" layoutX="1200.0" layoutY="14.0" mnemonicParsing="false" onAction="#close" prefHeight="40.0" prefWidth="40.0" style="-fx-background-radius: 7;">
+                           <graphic>
+                              <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../icons/redDelete.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </Button>
+                        <Button fx:id="btnNewFile" layoutX="371.0" layoutY="310.0" mnemonicParsing="false" onAction="#newFile" prefHeight="95.0" prefWidth="95.0" style="-fx-background-radius: 25;">
+                           <graphic>
+                              <ImageView fitHeight="53.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../icons/plus.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </Button>
+                        <Button fx:id="btnLoadFile" layoutX="585.0" layoutY="310.0" mnemonicParsing="false" onAction="#openFile" prefHeight="95.0" prefWidth="95.0" style="-fx-background-radius: 25;">
+                           <graphic>
+                              <ImageView fitHeight="53.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../icons/folder.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </Button>
+                        <Button fx:id="btnPasswordGenerator" layoutX="799.0" layoutY="310.0" mnemonicParsing="false" onAction="#generator" prefHeight="95.0" prefWidth="95.0" style="-fx-background-radius: 25;">
+                           <graphic>
+                              <ImageView fitHeight="53.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../icons/eclair.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </Button>
+                        <Text fill="#a8a8a8" layoutX="330.0" layoutY="440.0" strokeType="OUTSIDE" strokeWidth="0.0" text="New File" textAlignment="CENTER" wrappingWidth="177.7294921875">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Text>
+                        <Text fill="#a8a8a8" layoutX="543.0" layoutY="439.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Load" textAlignment="CENTER" wrappingWidth="177.7294921875">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Text>
+                        <Text fill="#a8a8a8" layoutX="764.0" layoutY="440.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Password Generator" textAlignment="CENTER" wrappingWidth="165.7294921875">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Text>
+                     </children>
+                  </Pane>
+               </center>
+            </BorderPane>
+         </children>
+      </StackPane>
+    </children>
+</AnchorPane>

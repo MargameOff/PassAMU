@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="scene2" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="224.0" prefWidth="538.0" stylesheets="@main.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.passamu.controllers.FolderNameController">
+   <children>
+      <Pane prefHeight="224.0" prefWidth="538.0" style="-fx-background-color: #1C1C1CFF;">
+         <children>
+            <Label fx:id="crdNoteText" alignment="CENTER" layoutX="86.0" layoutY="41.0" prefHeight="40.0" prefWidth="367.0" text="Enter Folder Name" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="29.0" />
+               </font>
+            </Label>
+            <Button fx:id="validPasswordButton" layoutX="390.0" layoutY="124.0" mnemonicParsing="false" onAction="#validate" prefHeight="50.0" prefWidth="50.0" style="-fx-background-radius: 7;">
+               <graphic>
+                  <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../icons/cochegreen.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="36.0" layoutY="124.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../icons/folder.png" />
+               </image>
+            </ImageView>
+            <Button fx:id="closePasswordButton" layoutX="450.0" layoutY="124.0" mnemonicParsing="false" onAction="#close" prefHeight="50.0" prefWidth="50.0" style="-fx-background-radius: 7;">
+               <graphic>
+                  <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../icons/redDelete.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <TextField fx:id="folderName" layoutX="104.0" layoutY="124.0" prefHeight="50.0" prefWidth="276.0" promptText="Folder Name" style="-fx-background-color: #3F3F3FFF; -fx-background-radius: 7; -fx-text-fill: LIGHTGREY;" />
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>

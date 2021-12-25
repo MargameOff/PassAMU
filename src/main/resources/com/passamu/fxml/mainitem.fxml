@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="70.0" prefWidth="350.0" style="-fx-background-color: #1C1C1CFF; -fx-border-radius: 5em;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.passamu.controllers.ItemController">
+   <children>
+      <ImageView fx:id="listLogo" fitHeight="46.0" fitWidth="48.0" layoutX="14.0" layoutY="12.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../icons/google.png" />
+         </image></ImageView>
+      <Label fx:id="listAppName" layoutX="71.0" layoutY="17.0" prefHeight="19.0" prefWidth="279.0" text="App Name" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Label>
+      <Label fx:id="listUser" layoutX="71.0" layoutY="38.0" prefHeight="15.0" prefWidth="279.0" text="mail@gmail.fr" textFill="#c6c6c6">
+         <font>
+            <Font size="12.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>
