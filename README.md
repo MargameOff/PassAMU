@@ -37,6 +37,9 @@ You can choose with 3 options:
 ### Password Generator
 ![](https://media.discordapp.net/attachments/805932432096100353/920582132517208074/unknown.png?width=394&height=738)
 
+### UML
+![](https://cdn.discordapp.com/attachments/902259116754477118/920574818196291595/unknown.png)
+
 ## Contributing
 If you want to propose major changes, please open an issue first to discuss what you would like to change.
 
